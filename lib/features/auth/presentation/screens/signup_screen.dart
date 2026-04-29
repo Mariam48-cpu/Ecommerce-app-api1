@@ -1,4 +1,3 @@
-import 'package:ecommerce_app_api_26/features/auth/data/auth_api/api_helper.dart';
 import 'package:ecommerce_app_api_26/features/auth/data/auth_api/auth_api.dart';
 import 'package:ecommerce_app_api_26/features/auth/presentation/screens/login_screen.dart';
 import 'package:flutter/material.dart';
@@ -9,7 +8,6 @@ class SignupScreen extends StatefulWidget {
   @override
   State<SignupScreen> createState() => _SignupScreenState();
 }
-
 class _SignupScreenState extends State<SignupScreen> {
   final _formKey = GlobalKey<FormState>();
   final _nameController = TextEditingController();
@@ -35,17 +33,6 @@ class _SignupScreenState extends State<SignupScreen> {
           _emailController.text,
           _passwordController.text,
         );
-
-        /// عشان الساين اب يتربط باللوجن ويعرف  بقي يستقبل البيانات منه
-        await ApiHelper.saveLocalUser(
-          _emailController.text,
-          _passwordController.text,
-        );
-
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text("Account Created Successfully")),
-        );
-
         Navigator.pushReplacement(
           context,
           MaterialPageRoute(builder: (context) => const LoginScreen()),

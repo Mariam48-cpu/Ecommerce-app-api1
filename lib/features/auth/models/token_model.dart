@@ -7,5 +7,4 @@
     accessToken = json['access_token'];
     refreshToken = json['refresh_token'];
   }
-
 }
